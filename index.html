@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#f9e5c2">
+
+    <meta name="description" content="Tabata timer for 8 cycles of 10s rest and 20s work. Featuring full screen app mode (except for iPhones), remembering your completed cycles on same device and browser, and keeping mobile screen awake when working. Mostly done with chat-gpt for a hobby trial, would not implement like this in real world.">
+    <meta name="keywords" content="tabata, tabata timer, crossfit, cross fit">
+    <meta name="rating" content="Safe For Kids">
+    <meta name="author" content="Tero Jaakkola - teroj.jaakkola@gmail.com">
+    <meta name="robots" content="index,follow">
+    <meta name="robots" content="noodp">
+    <meta property="og:title" content="Tabata Timer">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://tabata-three.vercel.app/icon-small.png">
+    <meta property="og:site_name" content="Tabata Timer">
+    <meta property="og:description" content="Tabata timer for 8 cycles of 10s of rest and 20s of work.">
+    <meta name="twitter:title" content="Tabata Timer">
+    <meta name="twitter:image" content="https://tabata-three.vercel.app/icon-small.png">
+    <meta name="twitter:description" content="Tabata timer for 8 cycles of 10s of rest and 20s of work.">
+    
+    <title>Tabata Timer</title>
+    
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏰</text></svg>"
+    />
+    <link rel="manifest" href="manifest.json">
+  </head>
+  <body>
+    <div id="tabata">
+      <div id="rounds">Rounds Left: <span class="highlight" id="roundsLeft">8</span></div>
+      <div id="time">Start from rest: <span class="highlight" id="timeLeft">10s</span></div>
+      <button id="startButton">Start</button>
+      <button id="stopButton">Stop</button>
+      <div id="bottomContainer">
+        <div id="addToHomeScreenContainer">
+          <button id="addToHomeScreen" class="round-button">
+            <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="14" width="24" height="2" fill="#666" />
+              <rect x="14" y="3" width="2" height="24" fill="#666" />
+            </svg>
+          </button>
+          <div class="action-text">Home Screen</div>
+          
+        </div>
+        
+        <button id="fullscreen-toggle">
+          <svg id="fullscreen-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(5, -5)">
+              <path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z" fill="#666" />
+            </g>
+            <g transform="translate(-5, 5) rotate(180, 12, 12)">
+              <path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z" fill="#666" />
+            </g>
+          </svg>
+
+          <svg id="exit-fullscreen-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <g transform="rotate(45, 12, 12)">
+              <rect x="0" y="11" width="24" height="2" fill="#666" />
+              <rect x="11" y="0" width="2" height="24" fill="#666" />
+            </g>
+          </svg>
+          <div class="action-text">Full screen</div>
+        </button>
+
+        <div id="completedCycles"></div>
+      </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.core.min.js" integrity="sha512-d00Brs/+XQUUaO0Y9Uo8Vw63o7kS6ZcLM2P++17kALrI8oihAfL4pl1jQObeRBgv06j7xG0GHOhudAW0BdrycA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+  </body>
+</html>

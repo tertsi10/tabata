@@ -1,0 +1,141 @@
+:root {
+  --vanilla-sponge: rgb(250, 230, 195);
+  --bush-lily: rgb(245, 115, 70);
+  --lilac: rgb(225, 190, 240);
+  --sunflower: rgb(251, 190, 75);
+  --bottle-green: rgb(100, 160, 140);
+  --dark-grey: rgb(33, 37, 41);
+
+  --primary-text: var(--dark-grey);
+  --button-active: var(--lilac);
+  --default-bg: var(--vanilla-sponge);
+  --work-period-bg: var(--bottle-green);
+  --rest-period-bg: var(--bush-lily);
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  color: var(--primary-text);
+  background-color: var(--default-bg);
+  transition: background-color 0.5s ease;
+  font-family: Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro,
+    sans-serif;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  box-sizing: border-box;
+  margin: 0;
+}
+
+#tabata {
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+}
+
+#startButton,
+#stopButton {
+  display: inline-block;
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 18px;
+  color: var(--primary-text);
+  background-color: var(--button-active);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#startButton:hover,
+#stopButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#startButton:disabled {
+  transform: scale(1);
+  cursor: not-allowed; /* Change cursor to indicate the button is disabled */
+  opacity: 0.7; /* Make the button appear faded */
+  box-shadow: none; /* Remove shadow to flatten the appearance */
+}
+
+
+#addToHomeScreenContainer {
+  /* display: none; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.round-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #666;
+  color:#666;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.action-text {
+  color: #666; /* Color of the action text */
+  max-width: 84px;
+  font-variant: all-petite-caps;
+  font-size: 16px;
+}
+
+.highlight {
+  font-size: 2em; /* Adjusts the font size to be 4 times larger */
+  margin-left: 4px;
+}
+
+#rounds,
+#time {
+  font-size: calc(10px + 2vmin); /* Responsive font size */
+}
+
+#completedCycles {
+  font-size: 14px;
+  padding: 10px;
+}
+
+/* Additional styles for dynamic background and larger time display */
+#time {
+  font-size: calc(15px + 3vmin); /* Larger and responsive font size for time */
+  font-weight: bold;
+}
+
+/* Dynamic background colors for work/rest periods */
+body.workPeriod {
+  background-color: var(--work-period-bg);
+}
+
+body.restPeriod {
+  background-color: var(--rest-period-bg);
+}
+
+#bottomContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed; /* Fix position relative to the viewport */
+  bottom: 0; /* Align to the bottom of the viewport */
+  left: 0;
+  right: 0;
+  text-align: center; /* Center the text/content inside the container */
+  padding-bottom: 12px;
+}
+
+#fullscreen-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
